@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bunpo Lens</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <div>
+        <p class="eyebrow">SEE THE STRUCTURE</p>
+        <h1>Bunpo Lens</h1>
+        <p class="subtitle">Turn Japanese text into a visual grammar map.</p>
+      </div>
+      <button id="resetButton" class="quiet-button" type="button">Reset demo</button>
+    </header>
+
+    <section class="workspace" aria-label="Japanese grammar highlighter">
+      <div class="input-panel">
+        <label for="sourceText">Japanese text</label>
+        <textarea id="sourceText" rows="8" spellcheck="false">昨日、静かな図書館で面白い本を読みました。</textarea>
+        <div class="actions">
+          <button id="analyzeButton" class="primary-button" type="button">Analyze text</button>
+          <span id="saveStatus" role="status">Saved on this device</span>
+        </div>
+        <p class="hint">Tip: click a word in the reading view, then choose its grammar role.</p>
+      </div>
+
+      <div class="reading-panel">
+        <div class="panel-heading">
+          <h2>Reading view</h2>
+          <button id="clearButton" class="text-button" type="button">Clear labels</button>
+        </div>
+        <div id="readingView" class="reading-view" lang="ja" aria-live="polite"></div>
+        <div id="categoryPicker" class="category-picker" hidden>
+          <p>Label <strong id="selectedWord"></strong> as:</p>
+          <div id="categoryButtons" class="category-buttons"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="legend" aria-labelledby="legendTitle">
+      <h2 id="legendTitle">Grammar colors</h2>
+      <div id="legendItems" class="legend-items"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
